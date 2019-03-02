@@ -4,7 +4,7 @@ Letter = namedtuple('Letter', 'name amount value')
 
 def _load_words():
     with open('dictionary.txt') as f:
-        return set([word.strip().lower() for word in f.read().split()])
+        return set([word.strip().upper() for word in f.read().split()])
 
 DICTIONARY = _load_words()
 assert len(DICTIONARY) == 234371
@@ -28,3 +28,17 @@ LETTER_SCORES = dict(zip(
 assert LETTER_SCORES['A'] == 1
 assert LETTER_SCORES['Q'] == 10
 assert sum(LETTER_SCORES.values()) == 87
+
+
+'''
+def pouch(dist):
+        data = list()
+        for tup in dist:
+                for i in range(0, int(tup.amount)):
+                        data.extend(tup.name)
+        return data
+
+def letter_score(dist):
+        return {letter.name:letter.value for letter in dist}
+
+'''        
